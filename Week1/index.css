@@ -1,4 +1,5 @@
 .main{
+<<<<<<< HEAD
     display: flex;;
     flex-direction: column;
     /* width: 100%;
@@ -50,3 +51,56 @@
     } */
   
   }
+=======
+  display: flex;;
+  flex-direction: column;
+  /* width: 100%;
+  width: 100%; */
+  /* background-color: aqua; */
+}
+
+.redExample {
+  /* flex: 1; */
+  background-color: red;
+
+
+}
+
+.blueExample2 {
+  /* width: 80px; */
+  /* width:50%; */
+  background-color: blue;
+}
+
+.div1{
+  display: flex;
+  justify-content: center;
+  height: 30px;
+}
+
+.green{
+  /* width: 90%; */
+  background-color: green;
+}
+
+.div-common{
+  display: flex;
+  /* justify-content: center; */
+  height: 30px;
+}
+
+.yellow{
+  background-color: yellow;
+}
+
+@media screen and (max-width:600px) {
+  .examples{
+    color:white;
+
+  }
+  /* .div-common{
+    width: 400px;
+  } */
+
+}
+>>>>>>> bd07cba92972f6df38ae46e25a1b5a75c6924324
