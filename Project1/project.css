@@ -8,7 +8,7 @@
 }
 body{
     margin: 0px;
-    padding: 0px;
+    /* padding: 0px; */
 }
 
 .header{
@@ -17,7 +17,8 @@ body{
     width: 100%;
     gap:748px;
     align-items: center;
-    padding-left: 80px;
+    /* padding-left: 80px; */
+    
 }
 
 .home{
@@ -44,7 +45,7 @@ body{
     margin-left: 100px;
     gap:150px;
    align-items: center;
-   width: calc(100% - 100px);
+
    
 }
 
@@ -83,11 +84,8 @@ button{
 }
 
 .left-part{
-    /* margin-bottom: 10px; */
     width: 500px;
     height: 350px;
-    /* background-color:burlywood; */
-    /* padding-left: 100px; */
     vertical-align: middle;
 }
 
@@ -102,18 +100,7 @@ button{
    
 }
 
-/* #JumusTap{
-    
-    line-height: 22px;
-    width: 120px;
-    height: 30px;
-    font-family: 'Kanit',sans-serif;
-    font-weight: 600;
-    font-size: 18px;
-    
-    letter-spacing: 1px;
-    
-} */
+
 
 
 #JumusTap{
@@ -124,12 +111,12 @@ button{
     font-weight: 600;
     font-size: 18px;
     letter-spacing: 1px;  
+    margin-left: 95px;
 }
 
 #JumusTap img{
     width:18px;
     height: 24px;
-    /* height: auto; */
 }
 
 #lopar{
@@ -138,14 +125,27 @@ button{
     width: 17px;
 }
 
+.left-part p{
+    font-size: 18px;
+}
 
 
-@media only screen and (max-width:360px){
+
+/* mobile version */
+@media only screen and (max-width:1024px){
     .home div{
         display: none;
     }
     .header{
-        gap:100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap:100px
+     
+    }
+
+    .header #JumusTap{
+        margin-left: 0px;
     }
 
     .menu-part-2{
@@ -153,7 +153,7 @@ button{
         display: flex;
         flex-direction: column-reverse;
         align-items: center;
-        justify-content: center;
+        /* justify-content: center; */
         width: 100%;
         gap:50px;
         
@@ -161,14 +161,11 @@ button{
     }
 
     .menu-part-2 .left-part{
-        width: 300px;
+        /* width: 300px; */
         font-size: 10px;
     }
 
-    .menu-part-2 .left-part #text h1{
-        display: inline;
-    
-}
+ 
 
     .menu-part-2 .left-part #text{
         display: flex;
@@ -176,14 +173,12 @@ button{
         font-size: 22px;
         align-items: center;
         
-       
-        /* gap:20px; */
-        
 }
    
     .menu-part-2 img{
         height: 210px;
         width: 312px;
+     
         
     }
     .menu{
@@ -191,10 +186,12 @@ button{
     }
 
     .header{
-        padding-left:20px
+        /* padding-left:20px */
     }
+
     .left-part{
-        width: 100%;
+        width: 312px;
+        height: 192px;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -204,12 +201,27 @@ button{
 
     .left-part p{
         width: 100%;
+        padding-left: 5px;
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        
-        /* justify-content: flex-start; */
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        font-size: 15px;
+        line-height: 18px;
+        font-weight: 500;
+        font-family: 'Inter' sans-serif;
+        letter-spacing: 0%;
     }
+
+    #make-shift-2{
+        margin-left: 7px;
+    }
+
+    #make-shift-3{
+        margin-left: 40px;
+    }
+
+   
 }
 
 
