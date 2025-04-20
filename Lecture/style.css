@@ -1,0 +1,17 @@
+.container{
+    /* background-color: black; */
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    justify-content: center;
+    height: 500px;
+    background-color: orange;
+    
+    
+    
+    
+}
+
+.container p{
+    display: inline;
+}

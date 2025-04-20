@@ -8,9 +8,11 @@
 }
 body{
     margin: 0px;
+    background-color: #f1f1f1;
     /* padding: 0px; */
 }
 
+/* first part */
 .header{
     display: flex;
     height: 62px;
@@ -77,6 +79,7 @@ h1{
     font-weight: bold;
     font-size: 15px;
     outline: none;
+    background-color: #081E341F;
 }
 button{
     border: none;
@@ -127,6 +130,222 @@ button{
 
 .left-part p{
     font-size: 18px;
+}
+
+
+
+/* second part */
+.how-it-works{
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+    align-items: center;
+    width: 100%;
+    height: 562px;
+    background-color: #E1DEE7;
+    border-radius: 32px;
+    
+}
+
+.first-block{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 84px;
+    /* background-color: red; */
+    font-size: 54px;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 1000;
+    line-height: 56px;
+    margin-right: 35px;
+    
+}
+
+.first-block span{
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.second-part{
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-evenly;
+    /* background-color: #712FFF; */
+    width: 100%;
+    height: 186px;
+    /* gap:40px; */
+}
+
+
+.second-part img{
+    width: 64px;
+    height: 64px;
+}
+
+.second-part div{
+    display: flex;
+    flex-direction: column;
+    gap:30px;
+    width: 400px;
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 28px;
+}
+.second-part p{
+    font-weight: 500;
+}
+
+/* third part */
+
+.lets-get-started{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 422px;
+    gap:48px;
+    /* background-color: red; */
+    background-color: #f1f1f1;
+}
+
+.first-row{
+    font-family: 'Kanit',sans-serif;
+    font-weight: 700;
+    font-size: 54px;
+}
+
+.second-row{
+    font-family: 'Inter',sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.third-row{
+    display: flex;
+    gap:48px;
+    width:757px ;
+    justify-content: space-between;
+}
+
+.third-row button{
+    width:106px;
+    height:55px;
+    background-color:#712FFF ;
+    color: white;
+    border-radius: 100px;
+}
+.lets-get-started div{
+    margin-left: 70px;
+}
+
+.third-row input{
+    font-size: 16px;
+    font-family: 'Inter',sans-serif;
+    font-weight: 500;
+    width: 600px;
+    height: 50px;
+    border-radius: 12px;
+    background-image: url("Images/Search.png");
+    background-repeat:no-repeat ;
+    background-position: 0px 12px ;
+    padding-left: 30px;
+    border-color: #E1DEE7;
+    border-style: solid;
+    /* margin-left:10px; */
+}
+/* input::placeholder{
+    text-indent: 30px;
+} */
+
+/* forht part */
+
+.upload-your-sv{
+    width: 100%;
+    height: 548px;
+    gap:180px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #f1f1f1;
+
+}
+.upload{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 495px;
+    height: 214px;
+    gap:30px;
+}
+
+.upload p{
+    margin: 0px;
+    height: 56px;
+    font-size: 54px;
+    font-family: 'Kanit',sans-serif;
+    font-weight: 600;
+   
+}
+
+.upload div{
+    font-size: 16px;
+    font-weight: 500px;
+    font-family: 'Inter',sans-serif;
+}
+
+.upload button{
+    width: 114px;
+    height: 50px;
+    background-color: #712FFF;
+    border-radius: 100px;
+    color: white;
+}
+
+
+/* fifth part */
+
+.links{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 172px;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 10px;
+    gap:175px;
+    /* margin-bottom: 100px; */
+
+}
+
+
+/* .links div{
+    margin-bottom: 60px;
+} */
+
+.Instagram-Twitter img{
+    width: 24px;
+    height: 24px;
+}
+
+.Instagram-Twitter{
+    display: flex;
+    justify-content: center;
+    gap:30px;
+}
+
+.Instagram-Twitter span{
+    font-size: 14px;
+    font-family: 'Inter',sans-serif;
+    font-weight: 500;
+    margin: auto;
+}
+.Instagram-Twitter img{
+    font-family: 'Inter',sans-serif;
+    font-size: 14px;
+    color: #081E34;
 }
 
 
