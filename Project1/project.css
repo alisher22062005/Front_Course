@@ -134,9 +134,13 @@ button {
   /* justify-content: center; */
   align-items: center;
   width: 100%;
-  height: 562px;
+  /* height: 562px; */
+
   background-color: #e1dee7;
   border-radius: 32px;
+  gap: 100px;
+  padding-top: 7%;
+  padding-bottom: 7%;
 }
 
 .first-block {
@@ -165,7 +169,6 @@ button {
   justify-content: space-evenly;
   /* background-color: #712FFF; */
   width: 100%;
-  height: 186px;
   /* gap:40px; */
 }
 
@@ -178,7 +181,7 @@ button {
   display: flex;
   flex-direction: column;
   gap: 30px;
-  width: 400px;
+  /* width: 400px; */
   font-family: "Inter", sans-serif;
   font-size: 24px;
   font-weight: 700;
@@ -258,9 +261,8 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 495px;
-  height: 214px;
   gap: 30px;
+  height: 100%;
 }
 
 .upload p {
@@ -278,8 +280,8 @@ button {
 }
 
 .upload button {
-  width: 114px;
-  height: 50px;
+  width: 22%;
+  height: 20%;
   background-color: #712fff;
   border-radius: 100px;
   color: white;
@@ -292,11 +294,11 @@ button {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 172px;
+  padding-bottom: 10%;
+  padding-top: 3%;
   background-color: rgba(255, 255, 255, 1);
   border-radius: 10px;
   gap: 175px;
-  /* margin-bottom: 100px; */
 }
 
 /* .links div{
@@ -334,6 +336,13 @@ button {
   margin-left: 5%;
 }
 
+.upload-your-sv button {
+  display: flex;
+  justify-content: center;
+  padding: 5%;
+  width: 33%;
+}
+
 /* mobile version */
 @media only screen and (max-width: 480px) and (min-width: 320px) {
   .menu {
@@ -341,7 +350,8 @@ button {
     justify-content: center;
     flex-direction: column;
     height: 100%;
-    gap: 75px;
+    gap: 30px;
+    /* gap: 350px; */
   }
   .home div {
     display: none;
@@ -361,22 +371,18 @@ button {
     margin-left: 0px;
     display: flex;
     flex-direction: column-reverse;
-    align-items: center;
-    /* justify-content: center; */
+    height: 100%;
     width: 100%;
-    gap: 50px;
-  }
-
-  .menu-part-2 .left-part {
-    /* width: 300px; */
-    font-size: 10px;
+    gap: 40px;
   }
 
   .menu-part-2 .left-part #text {
     display: flex;
     flex-direction: column;
-    font-size: 22px;
     align-items: center;
+    justify-content: center;
+    line-height: 40px;
+    margin: auto;
   }
 
   .menu-part-2 img {
@@ -384,18 +390,12 @@ button {
     width: 312px;
   }
 
-  .header {
-    /* padding-left:20px */
-  }
-
   .left-part {
-    width: 312px;
-    height: 192px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     align-items: center;
-    /* align-items: center; */
+    gap: 10px;
+    max-width: 100%;
   }
 
   .left-part p {
@@ -411,6 +411,10 @@ button {
     font-family: "Inter" sans-serif;
     letter-spacing: 0%;
   }
+  .left-part h1 {
+    font-size: 30px;
+    width: 100%;
+  }
 
   #make-shift-2 {
     margin-left: 7px;
@@ -418,5 +422,117 @@ button {
 
   #make-shift-3 {
     margin-left: 40px;
+  }
+
+  /* part3 */
+
+  .second-part {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 3rem;
+  }
+
+  .second-part div {
+    gap: 20px;
+  }
+
+  .second-part div p {
+    margin: 0;
+  }
+
+  /* part4 */
+
+  .lets-get-started {
+    display: flex;
+    align-items: center;
+    gap: 5%;
+  }
+  .third-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+  .third-row input {
+    width: 70%;
+    padding-left: 15%;
+    background-position: 6% 12px;
+  }
+  .third-row button {
+    width: 20%;
+  }
+
+  .first-row {
+    font-size: 30px;
+  }
+
+  .second-row p {
+    width: 100%;
+    padding-left: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: 500;
+    font-family: "Inter" sans-serif;
+    letter-spacing: 0%;
+  }
+
+  /* fifth part */
+
+  .upload-your-sv {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .upload-your-sv img {
+    width: 90%;
+  }
+
+  .upload button {
+    height: 3rem;
+  }
+
+  .upload p {
+    font-size: 2rem;
+  }
+
+  #text-second-row span {
+    display: none;
+  }
+  #text-second-row {
+    max-width: 78%;
+  }
+
+  /* links last part */
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 50px;
+    padding: 8%;
+    /* max-width: 70%; */
+  }
+  .Instagram-Twitter {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .Instagram-Twitter span {
+    margin: 0px;
+  }
+
+  #references {
+    max-width: 75%;
+  }
+
+  .upload-your-sv button img {
+    width: 100%;
   }
 }
