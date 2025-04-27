@@ -339,6 +339,7 @@ button {
 .upload-your-sv button {
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 5%;
   width: 33%;
 }
@@ -494,7 +495,7 @@ button {
   }
 
   .upload button {
-    height: 3rem;
+    /* height: 3rem; */
   }
 
   .upload p {
@@ -530,5 +531,9 @@ button {
 
   #references {
     max-width: 75%;
+  }
+
+  .upload-your-sv button img {
+    width: 20%;
   }
 }
