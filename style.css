@@ -58,7 +58,7 @@ p {
   font-family: "Inter", sans-serif;
   line-height: 22px;
   font-weight: 500px;
-  font-size: 17px;
+  font-size: 15px;
 }
 
 h1 {
@@ -210,11 +210,11 @@ button {
   font-size: 54px;
 }
 
-.second-row {
+.lets-get-started p {
   font-family: "Inter", sans-serif;
   font-size: 16px;
   font-weight: 500;
-  width: 33%;
+  /* width: 33%; */
 }
 
 .third-row {
@@ -266,7 +266,7 @@ button {
   height: 100%;
 }
 
-.upload p {
+#upload-CV {
   margin: 0px;
   height: 56px;
   font-size: 54px;
@@ -346,7 +346,7 @@ button {
 }
 
 /* mobile version */
-@media only screen and (max-width: 480px) and (min-width: 320px) {
+@media (max-width: 480px) and (min-width: 320px) {
   .menu {
     display: flex;
     justify-content: center;
@@ -471,14 +471,14 @@ button {
     font-size: 30px;
   }
 
-  .second-row p {
-    width: 100%;
+  .lets-get-started p {
+    /* width: 100%; */
     padding-left: 5px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    font-size: 15px;
+    font-size: 13px;
     line-height: 18px;
     font-weight: 500;
     font-family: "Inter" sans-serif;
@@ -500,19 +500,26 @@ button {
     /* height: 3rem; */
   }
 
-  .upload p {
+  #upload-CV {
     font-size: 2rem;
   }
+  #break {
+    display: none;
+  }
 
-  #text-second-row span {
+  #text-second-row #break {
     display: none;
   }
   #text-second-row {
-    max-width: 90%;
+    display: flex;
+    flex-direction: column;
+    font-size: 13px;
+
+    /* max-width: 90%; */
   }
-  .second-row {
+  /* .second-row {
     width: 85%;
-  }
+  } */
   .first-block {
     margin-right: 0px;
     font-size: 2.5rem;
@@ -544,5 +551,9 @@ button {
 
   .upload-your-sv button img {
     width: 20%;
+  }
+
+  .break {
+    display: none;
   }
 }
