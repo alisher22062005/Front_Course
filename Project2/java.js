@@ -55,7 +55,7 @@ request.onload = function () {
     const buttons = document.querySelectorAll("button");
     console.log(buttons);
 
-    elem.forEach((elem, index) => {
+    new_array.forEach((elem, index) => {
       buttons[index].addEventListener("click", () => {
         const url = elem.url;
         window.open(url);
