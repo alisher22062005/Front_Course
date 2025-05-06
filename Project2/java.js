@@ -29,20 +29,18 @@ request.onload = function () {
     const array = data.results.filter((key) => key.section == "travel");
     const new_array = array.slice(0, 3);
 
-    let i = 0;
-
-    while (i < new_array.length) {
+    new_array.forEach((elem, i) => {
       const par = document.createElement("p");
       const time = document.createElement("span");
       const select = document.createElement("span");
       const picture = document.createElement("img");
       const title_name = document.createElement("div");
 
-      par.textContent = new_array[i].abstract;
-      time.textContent = new_array[i].published_date;
+      par.textContent = elem.abstract;
+      time.textContent = elem.published_date;
       select.textContent = "Selected for you";
-      picture.src = new_array[i].multimedia[1].url;
-      title_name.textContent = new_array[i].title;
+      picture.src = elem.multimedia[1].url;
+      title_name.textContent = elem.title;
 
       text[i].appendChild(par);
       additional[i].appendChild(time);
@@ -50,13 +48,14 @@ request.onload = function () {
       right_part.appendChild(picture);
       title[i].appendChild(title_name);
 
-      i++;
-    }
+      console.log(elem);
+      console.log(i);
+    });
 
     const buttons = document.querySelectorAll("button");
     console.log(buttons);
 
-    new_array.forEach((elem, index) => {
+    elem.forEach((elem, index) => {
       buttons[index].addEventListener("click", () => {
         const url = elem.url;
         window.open(url);
