@@ -1,21 +1,30 @@
 import { useEffect, useState } from "react";
 import TaskList from "../TaskList/TaskList";
+import MenuDefault from "../MenuDefault/MenuDefault";
 export default function Menu() {
   const [typeWindowisClicked, setTypeWindowisClicked] = useState(false);
+  const [currentButton, setCurrentButton] = useState("To Do");
   const [toDoListisClicked, setToDoListisClicked] = useState(true);
   const [trashListisClicked, setTrashListisClicked] = useState(false);
   const [doneListisClicked, setDoneListisClicked] = useState(false);
-  const [currentList, setCurrentList] = useState();
-  const [arrayToDoList, setArrayToDoList] = useState([
-    { name: "Go to the gym", done: false },
-    { name: "Do homework", done: false },
-  ]);
+  const [currentList, setCurrentList] = useState(() => {
+    const data = localStorage.getItem("array");
+    if (!data) return [];
+
+    const newArray = JSON.parse(data);
+
+    return newArray.filter((item) => !item.done && !item.deleted);
+  });
+  const [arrayToDoList, setArrayToDoList] = useState(() => {
+    const data = localStorage.getItem("array");
+    return data ? JSON.parse(data) : [];
+  });
 
   const [currentTask, setCurrentTask] = useState("");
+
   useEffect(() => {
     const data = JSON.stringify(arrayToDoList);
     localStorage.setItem("array", data);
-    // console.log(localStorage.length);
   }, [arrayToDoList]);
 
   function handleTypeWindowButton() {
@@ -29,30 +38,117 @@ export default function Menu() {
       setToDoListisClicked(true);
       setTrashListisClicked(false);
       setDoneListisClicked(false);
+      setCurrentButton("To Do");
+
+      const newArray = arrayToDoList.filter(
+        (item) => item.done == false && item.deleted == false
+      );
+
+      setCurrentList(newArray);
+      console.log(currentList, "Current list");
     } else if (list == "Trash") {
       setToDoListisClicked(false);
       setTrashListisClicked(true);
       setDoneListisClicked(false);
+      setCurrentButton("Trash");
+      const newArray = arrayToDoList.filter((item) => item.deleted);
+      setCurrentList(newArray);
     } else if (list == "Done") {
       setToDoListisClicked(false);
       setTrashListisClicked(false);
       setDoneListisClicked(true);
+      setCurrentButton("Done");
+
+      const newArray = arrayToDoList.filter((item) => {
+        return item.done && !item.deleted;
+      });
+      if (newArray) setCurrentList(newArray);
     }
   }
   function addTask() {
-    const newTask = { name: currentTask, done: false };
-    setArrayToDoList((prev) => [...prev, newTask]);
+    const newTask = { name: currentTask, done: false, deleted: false };
+    let newArray;
+
+    arrayToDoList
+      ? (newArray = [...arrayToDoList, newTask])
+      : (newArray = newTask);
+
+    setArrayToDoList(newArray);
+
     setCurrentTask("");
+
+    if (toDoListisClicked) {
+      const updatedCurrentList = newArray.filter(
+        (item) => !item.done && !item.deleted
+      );
+      setCurrentList(updatedCurrentList);
+    }
   }
   const doneTask = (task) => {
-    setArrayToDoList((prev) =>
-      prev.map((item) => {
-        return item.name == task.name ? { ...item, done: !item.done } : item;
-      })
-    );
+    {
+      const newArray = arrayToDoList.map((item) =>
+        task.name == item.name
+          ? {
+              ...item,
+              done: !item.done,
+            }
+          : item
+      );
+      setArrayToDoList(newArray);
 
-    console.log(arrayToDoList, "Menu");
+      setCurrentList((prev) =>
+        prev.map((item) => {
+          return task.name == item.name ? { ...item, done: !item.done } : item;
+        })
+      );
+    }
   };
+
+  const deleteTask = () => {
+    const array = currentList.filter((item) => item.done);
+    console.log(array, "array");
+    console.log(arrayToDoList, "arrayToDo");
+    const newArray = arrayToDoList.map((item1) => {
+      const match = array.find((item2) => item1.name == item2.name);
+      return match ? { ...item1, done: false, deleted: true } : item1;
+    });
+    setArrayToDoList(newArray);
+    setCurrentList((prev) => {
+      return prev.filter((item) => !item.done && !item.deleted);
+    });
+  };
+
+  function deleteForever() {
+    const deletedTasks = currentList.filter((item) => item.done);
+    const newArray = arrayToDoList.filter((item1) => {
+      const match = deletedTasks.find((item2) => {
+        return item2.name == item1.name;
+      });
+      return !match;
+    });
+
+    setArrayToDoList(newArray);
+    const updatedCurrentList = currentList.filter((item1) => {
+      const match = deletedTasks.find((item2) => item2.name == item1.name);
+      return !match;
+    });
+    setCurrentList(updatedCurrentList);
+    localStorage.setItem("array", newArray);
+  }
+
+  function moveBackToToDo() {
+    const doneTasks = currentList.filter((item) => item.done);
+    const newArray = arrayToDoList.map((item1) => {
+      const match = doneTasks.find((item2) => item2.name == item1.name);
+      return match
+        ? { ...item1, done: !item1.done, deleted: !item1.deleted }
+        : item1;
+    });
+    setArrayToDoList(newArray);
+    setCurrentList((prev) => {
+      return prev.filter((item) => !item.done && item.deleted);
+    });
+  }
 
   return (
     <>
@@ -124,10 +220,10 @@ export default function Menu() {
             </div>
           )}
 
-          <div className="flex flex-col-reverse  bg-red-300">
+          <div className="flex flex-col-reverse  ">
             <button
               onClick={handleTypeWindowButton}
-              className="w-[4rem] bg-blue-300 rounded-[50%] p-[3%] text-[2rem]"
+              className="w-[4rem] bg-black rounded-[50%] p-[3%] text-[2rem] text-white"
             >
               +
             </button>
@@ -135,10 +231,24 @@ export default function Menu() {
         </div>
       </div>
       <div className="border-b-blue-500 ml-[10%] mt-[3%] flex flex-col gap-[2rem]">
-        <div className="font-medium text-[2rem]    ">Done</div>
+        <div className="font-medium text-[2rem]    ">{currentButton}</div>
         <hr className="border-2 w-[90%]"></hr>
       </div>
-      <TaskList list={arrayToDoList} doneTask={doneTask}></TaskList>
+      {currentList.length > 0 && (
+        <TaskList
+          list={currentList}
+          doneTask={doneTask}
+          trashListisClicked={trashListisClicked}
+        ></TaskList>
+      )}
+      <MenuDefault
+        list={currentList}
+        toDoListisClicked={toDoListisClicked}
+        deleteTask={deleteTask}
+        trashListisClicked={trashListisClicked}
+        deleteForever={deleteForever}
+        moveBackToToDo={moveBackToToDo}
+      ></MenuDefault>
     </>
   );
 }
